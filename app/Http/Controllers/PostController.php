@@ -70,6 +70,19 @@ class PostController extends Controller
     public function update(Request $request, $id)
     {
         //
+        $this->validate($request, [
+            'title' => 'required|min:6|max:86',
+            'content' => 'required|min:25|max:255'
+        ]);
+
+        $post = post::find($id);
+
+        $post->title = $request->title;
+        $post-content = $request->content;
+
+        $post->save();
+
+        return redirect()->route('index');
     }
 
     /**
@@ -81,5 +94,8 @@ class PostController extends Controller
     public function destroy($id)
     {
         //
+        $post = Post::find($id);
+        $post->delete();
+        return redirect()->route('index');
     }
 }

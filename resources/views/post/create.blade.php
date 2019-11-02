@@ -11,9 +11,10 @@
                 <input type="text" name="title" value="{{old('title')}}" placeholder="Enter a post title...">
             </label>
             <label for="content">
-                Title
-                <input type="text" name="title" value="{{old('title')}}" placeholder="Enter a post title...">
+                content
+                <textarea name="content" value="{{old('content')}}" placeholder="Enter the content for this blog post..."></textarea>
             </label>
+            <input type="submit" name="Create post">
         </form>
     </body>
 </html>
